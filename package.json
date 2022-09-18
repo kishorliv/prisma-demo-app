@@ -2,10 +2,10 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "bootstrap": "lerna exec yarn",
+    "bootstrap": "lerna bootstrap",
     "build": "lerna run build",
     "test": "lerna run test",
-    "clean": "lerna run clean",
+    "clean": "lerna clean",
     "lint": "eslint . --ext .ts --fix --quiet",
     "prettier": "node node_modules/.bin/prettier --check \"**/*.{js,json,ts,yml,yaml}\"",
     "prettier:write": "node node_modules/.bin/prettier --write \"**/*.{js,json,ts,yml,yaml}\""
