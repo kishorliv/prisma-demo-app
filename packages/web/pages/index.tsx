@@ -1,7 +1,27 @@
+import { gql, useQuery } from '@apollo/client';
 import Head from 'next/head';
-import { links } from '../data/links';
+
+const GET_LINKS = gql`
+  query GetLinks {
+    links {
+      id
+      imageUrl
+      category
+      title
+      description
+      url
+    }
+  }
+`;
 
 export default function Home() {
+  const { loading, data, error } = useQuery(GET_LINKS);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error! Could not fetch links.</p>;
+
+  const links = data.links;
+
   return (
     <div>
       <Head>
